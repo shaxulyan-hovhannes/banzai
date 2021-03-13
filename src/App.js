@@ -1,9 +1,13 @@
+import React from 'react';
 import './App.scss';
+import Header from 'components/header/Header';
+import ContentLibrary from 'components/contentLibrary/ContentLibrary';
 
 function App() {
   return (
     <div className="App">
-      <h1>fd</h1>
+      <Header />
+      <ContentLibrary />
     </div>
   );
 }
