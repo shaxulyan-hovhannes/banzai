@@ -35,7 +35,7 @@ function CategoryFilter() {
   if (cats.length) {
     return (
       <div className={classes.root}>
-        {[...[{ name: 'All' }], ...cats].map((category) => (
+        {[...[{ name: 'All', description: '' }], ...cats].map((category) => (
           <p className={classes.categoryItem}>{category.name}</p>
         ))}
       </div>

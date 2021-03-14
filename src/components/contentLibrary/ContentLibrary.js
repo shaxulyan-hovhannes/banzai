@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
 import { HEADER_HEIGHT } from 'constants/index';
+import { selectCompanyLogo } from 'redux/logo/selectors';
 
 import CategoryFilter from './components/categoryFIlter/CategoryFilter';
+import Content from './components/content/Content';
 
 const useStyles = makeStyles({
   root: {
@@ -10,12 +13,6 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  contentContainer: {
-    width: '80%',
-    flex: 1,
-    height: '100%',
-    background: 'blue',
   },
 });
 
@@ -25,7 +22,7 @@ function ContentLibrary() {
   return (
     <div className={classes.root}>
       <CategoryFilter />
-      <div className={classes.contentContainer}>dddd</div>
+      <Content />
     </div>
   );
 }

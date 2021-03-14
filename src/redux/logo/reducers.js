@@ -8,6 +8,7 @@ import {
 } from './actions';
 
 const initialState = {
+  selectedCategory: 0,
   loading: false,
   error: null,
   source: '',
