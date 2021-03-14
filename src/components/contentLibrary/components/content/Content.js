@@ -30,7 +30,6 @@ const useStyles = makeStyles({
     marginTop: '2%',
     marginLeft: '2%',
     height: '23%',
-    border: '1px solid white',
     justifyContent: 'space-between',
   },
 });
