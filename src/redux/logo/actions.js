@@ -1,4 +1,4 @@
-import { createAction, createActions } from 'redux-actions';
+import { createActions } from 'redux-actions';
 
 const FETCH_COMPANY_LOGO = 'FETCH_COMPANY_LOGO';
 const FETCH_COMPANY_LOGO_SUCCESS = 'FETCH_COMPANY_LOGO_SUCCESS';
