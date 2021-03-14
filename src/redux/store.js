@@ -4,10 +4,12 @@ import rootSaga from './rootSaga';
 
 import companyLogo from 'redux/logo/reducers';
 import drawer from 'redux/drawer/reducers';
+import content from 'redux/content/reducers';
 
 const reducers = combineReducers({
   companyLogo,
   drawer,
+  content,
 });
 const sagaMiddleware = createSagaMiddleware();
 
