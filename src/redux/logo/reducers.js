@@ -11,6 +11,8 @@ const initialState = {
   loading: false,
   error: null,
   source: '',
+  title: '',
+  cats: [],
 };
 
 const companyLogoReducers = handleActions(
@@ -20,9 +22,11 @@ const companyLogoReducers = handleActions(
         draft.loading = true;
       }),
 
-    [FETCH_COMPANY_LOGO_SUCCESS]: (state, { payload: source }) =>
+    [FETCH_COMPANY_LOGO_SUCCESS]: (state, { payload }) =>
       produce(state, (draft) => {
-        draft.source = source;
+        draft.source = payload.header_logo;
+        draft.title = payload.title;
+        draft.cats = payload.cats;
       }),
 
     [FETCH_COMPANY_LOGO_ERROR]: (state, { payload: error }) =>

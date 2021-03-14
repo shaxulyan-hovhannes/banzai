@@ -23,7 +23,7 @@ function EmailButton() {
 
   return (
     <div className={classes.root}>
-      <Button variant="" className={classes.button} startIcon={<EmailOutlinedIcon />}>
+      <Button variant="text" className={classes.button} startIcon={<EmailOutlinedIcon />}>
         Save
       </Button>
     </div>
