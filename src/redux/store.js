@@ -5,11 +5,13 @@ import rootSaga from './rootSaga';
 import companyLogo from 'redux/logo/reducers';
 import drawer from 'redux/drawer/reducers';
 import content from 'redux/content/reducers';
+import modal from 'redux/modal/reducers';
 
 const reducers = combineReducers({
   companyLogo,
   drawer,
   content,
+  modal,
 });
 const sagaMiddleware = createSagaMiddleware();
 

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+import modalActions from 'redux/modal/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,9 +23,18 @@ const useStyles = makeStyles((theme) => ({
 function EmailButton() {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
+  const onClick = useCallback(() => dispatch(modalActions.toggleModal()), [dispatch]);
+
   return (
     <div className={classes.root}>
-      <Button variant="text" className={classes.button} startIcon={<EmailOutlinedIcon />}>
+      <Button
+        onClick={onClick}
+        variant="text"
+        className={classes.button}
+        startIcon={<EmailOutlinedIcon />}
+      >
         Save
       </Button>
     </div>
