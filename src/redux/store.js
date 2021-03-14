@@ -2,7 +2,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
 
-const reducers = combineReducers({});
+import companyLogo from 'redux/logo/reducers';
+
+const reducers = combineReducers({
+  companyLogo,
+});
 const sagaMiddleware = createSagaMiddleware();
 
 const middlewareEnhancer = applyMiddleware(sagaMiddleware);
