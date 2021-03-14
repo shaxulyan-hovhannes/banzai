@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectedIsDrawerOpen } from 'redux/drawer/selectors';
 import { DRAWER_WIDTH, BORDER_BOTTOM } from 'constants/index';
 import { selectCompanyLogo } from 'redux/logo/selectors';
+import companyLogoActions from 'redux/logo/actions';
 
 const useStyles = makeStyles({
   root: {
@@ -27,16 +28,29 @@ const useStyles = makeStyles({
 });
 
 function CategoryFilter() {
+  const dispatch = useDispatch();
+
   const { cats } = useSelector(selectCompanyLogo);
   const isDrawerOpen = useSelector(selectedIsDrawerOpen);
 
   const classes = useStyles({ isDrawerOpen });
 
+  const onHandleClickCategory = useCallback(
+    (category) => () => dispatch(companyLogoActions.selectCategory(category)),
+    [dispatch]
+  );
+
   if (cats.length) {
     return (
       <div className={classes.root}>
-        {[...[{ name: 'All', description: '' }], ...cats].map((category) => (
-          <p className={classes.categoryItem}>{category.name}</p>
+        {[...[{ name: 'All', description: '' }], ...cats].map((category, index) => (
+          <p
+            key={index}
+            className={classes.categoryItem}
+            onClick={onHandleClickCategory(category.name)}
+          >
+            {category.name}
+          </p>
         ))}
       </div>
     );

@@ -5,10 +5,11 @@ import {
   FETCH_COMPANY_LOGO_SUCCESS,
   FETCH_COMPANY_LOGO_ERROR,
   FETCH_COMPANY_LOGO_RESET,
+  SELECT_CATEGORY,
 } from './actions';
 
 const initialState = {
-  selectedCategory: 0,
+  selectedCategory: 'McLaren Applied Technologies',
   loading: false,
   error: null,
   source: '',
@@ -38,6 +39,10 @@ const companyLogoReducers = handleActions(
     [FETCH_COMPANY_LOGO_RESET]: (state) =>
       produce(state, (draft) => {
         draft.loading = false;
+      }),
+    [SELECT_CATEGORY]: (state, { payload: category }) =>
+      produce(state, (draft) => {
+        draft.selectedCategory = category;
       }),
   },
   initialState
