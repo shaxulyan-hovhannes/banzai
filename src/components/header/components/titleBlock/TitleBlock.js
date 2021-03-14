@@ -1,5 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
+import { selectCompanyLogo } from 'redux/logo/selectors';
 
 const useStyles = makeStyles({
   root: {
@@ -14,12 +16,13 @@ const useStyles = makeStyles({
 
 function TitleBlock() {
   const classes = useStyles();
+  const { title, error } = useSelector(selectCompanyLogo);
 
-  return (
-    <div className={classes.root}>
-      Best Practices for Event Registration and Digital Collateral in Deloitte
-    </div>
-  );
+  if (error) {
+    return null;
+  }
+
+  return <div className={classes.root}>{title}</div>;
 }
 
 export default TitleBlock;

@@ -10,7 +10,7 @@ import { fetchAPI } from 'components/helpers';
 function* workFetchCompanyLogo() {
   try {
     const response = yield call(fetchAPI, {
-      url: '/get-comp-logo/2731',
+      url: '/content-app-cats/jVV3Q?appId=2731&eventId=2570',
       method: 'get',
     });
 
